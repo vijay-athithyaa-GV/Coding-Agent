@@ -6,7 +6,7 @@ from agent.models import ExecutionResult
 
 TIMEOUT_SECONDS = 10
 def execute_code(code: str) -> ExecutionResult:
-    with tempfile.NamedTemporaryFile(suffix=".py", delete=False) as temp_file:
+    with tempfile.NamedTemporaryFile(mode="w", suffix=".py", delete=False) as temp_file:
         temp_file.write(code)
         script_path = Path(temp_file.name)
 
